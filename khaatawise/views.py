@@ -188,3 +188,16 @@ def trigger_error(request):
     """View to trigger a test error for verifying error logging."""
     logger.error("Test error triggered by user %s", request.user.username)
     raise RuntimeError("This is a test error for verifying error logging. It is intentional and safe.")
+
+
+def healer_info(request):
+    """Public info endpoint about the MVP AI Self-Healing Server."""
+    from django.http import JsonResponse
+    return JsonResponse({
+        "project": "Autonomous AI Self-Healing Server (MVP)",
+        "test_target": "KhaataWise",
+        "poll_frequency": "Every 5 seconds",
+        "watched_logs": ["logs/error.log", "logs/input.log", "logs/output.log", "logs/server.log"],
+        "self_healing_mechanism": "system.txt prompt -> AI JSON packet -> execute terminal cmd -> resend mry + system.txt -> quit exit guard",
+        "local_dashboard": "http://localhost:8080"
+    })

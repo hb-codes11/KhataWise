@@ -1,8 +1,9 @@
-# KhaataWise + Autonomous AI Self-Healing Server
+# Autonomous AI Self-Healing Server (MVP)
+> **Core MVP Application**: An autonomous AI daemon and control dashboard that continuously monitors server logs, formulates diagnostic shell commands, and repairs running systems.
+> **Target Test Application**: **KhaataWise** (Django financial bookkeeping app), used as the realistic testbench to produce HTTP traffic, database transactions, and simulated runtime exceptions.
 
-A complete, production-ready workspace combining **KhaataWise** (Django financial management app for Indian small businesses) with an **Autonomous AI Self-Healing System** that continuously monitors logs, diagnoses system issues, executes repair commands in the terminal, and auto-heals runtime errors.
-
-- 🌐 **Live App Deployment**: [https://khatawise-n849.vercel.app/](https://khatawise-n849.vercel.app/)
+- 🤖 **MVP Self-Healing Dashboard**: [http://localhost:8080/](http://localhost:8080/) (when running locally)
+- 🌐 **Live Test App Deployment**: [https://khatawise-n849.vercel.app/](https://khatawise-n849.vercel.app/)
 - 💻 **GitHub Repository**: [https://github.com/hb-codes11/KhataWise.git](https://github.com/hb-codes11/KhataWise.git)
 
 ---
