@@ -1,8 +1,12 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Base directory for the KhaataWise + AI Self-Healing Server project
 BASE_DIR = Path(__file__).resolve().parent
+
+# Automatically load environment variables from .env
+load_dotenv(BASE_DIR / ".env")
 
 # Default directory where KhaataWise Django app writes its logs
 LOGS_DIR = BASE_DIR / "logs"
