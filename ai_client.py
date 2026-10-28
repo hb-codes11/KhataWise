@@ -105,7 +105,38 @@ class AIClient:
         """
         logger.info(f"Querying AI provider '{self.provider}'...")
 
-        if self.provider == "gemini" and self._gemini_client:
+        if self.provider == "groq" and settings.GROQ_API_KEY:
+            try:
+                headers = {
+                    "Authorization": f"Bearer {settings.GROQ_API_KEY}",
+                    "Content-Type": "application/json"
+                }
+                payload = {
+                    "model": settings.GROQ_MODEL,
+                    "messages": [
+                        {"role": "user", "content": prompt}
+                    ],
+                    "temperature": 0.1,
+                    "response_format": {"type": "json_object"}
+                }
+                logger.info(f"Sending prompt to Groq API ({settings.GROQ_MODEL})...")
+                resp = requests.post(
+                    f"{settings.GROQ_BASE_URL.rstrip('/')}/chat/completions",
+                    headers=headers,
+                    json=payload,
+                    timeout=30
+                )
+                resp.raise_for_status()
+                data = resp.json()
+                raw_text = data["choices"][0]["message"]["content"]
+                return parse_ai_response(raw_text)
+            except Exception as e:
+                logger.error(f"Groq API query failed: {e}")
+                logger.info("Falling back to Mock AI due to Groq API error")
+                raw_text = self.mock_service.generate(prompt)
+                return parse_ai_response(raw_text)
+
+        elif self.provider == "gemini" and self._gemini_client:
             try:
                 response = self._gemini_client.models.generate_content(
                     model=settings.GEMINI_MODEL,

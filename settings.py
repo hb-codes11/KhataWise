@@ -45,10 +45,10 @@ AUTO_HEAL_ON_INPUT = False  # Set to True if incoming requests should trigger AI
 # System prompt file address
 SYSTEM_PROMPT_PATH = os.getenv("SYSTEM_PROMPT_PATH", str(BASE_DIR / "system.txt"))
 
-# AI Provider: 'gemini', 'openai_compatible', or 'mock' (for offline testing)
-# Will auto-detect 'gemini' if GEMINI_API_KEY is present, else falls back to 'mock'
-DEFAULT_PROVIDER = "gemini" if os.getenv("GEMINI_API_KEY") else ("openai_compatible" if os.getenv("OPENAI_API_KEY") else "mock")
-AI_PROVIDER = os.getenv("AI_PROVIDER", DEFAULT_PROVIDER)
+# Groq configuration (Ultra-fast inference for real-time self-healing)
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_BASE_URL = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
 
 # Gemini configuration
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
@@ -58,6 +58,18 @@ GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+# AI Provider: 'groq', 'gemini', 'openai_compatible', or 'mock'
+if os.getenv("GROQ_API_KEY"):
+    DEFAULT_PROVIDER = "groq"
+elif os.getenv("GEMINI_API_KEY"):
+    DEFAULT_PROVIDER = "gemini"
+elif os.getenv("OPENAI_API_KEY"):
+    DEFAULT_PROVIDER = "openai_compatible"
+else:
+    DEFAULT_PROVIDER = "mock"
+
+AI_PROVIDER = os.getenv("AI_PROVIDER", DEFAULT_PROVIDER)
 
 # Maximum iterations per self-healing session to prevent infinite loops
 MAX_AI_ITERATIONS = int(os.getenv("MAX_AI_ITERATIONS", "15"))
