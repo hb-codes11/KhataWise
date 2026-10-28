@@ -2,7 +2,7 @@
 
 A complete, production-ready workspace combining **KhaataWise** (Django financial management app for Indian small businesses) with an **Autonomous AI Self-Healing System** that continuously monitors logs, diagnoses system issues, executes repair commands in the terminal, and auto-heals runtime errors.
 
-- **GitHub Repository**: [https://github.com/prashant0080/KhataWise.git](https://github.com/prashant0080/KhataWise.git)
+- **GitHub Repository**: [https://github.com/hb-codes11/KhataWise.git](https://github.com/hb-codes11/KhataWise.git)
 
 ---
 
