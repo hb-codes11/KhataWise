@@ -81,3 +81,25 @@ class AuthenticationTests(TestCase):
         })
         self.assertRedirects(response, reverse("dashboard"))
         self.assertTrue(BusinessProfile.objects.filter(user__username="new-owner").exists())
+
+
+class WebHealingTests(TestCase):
+    def test_healing_page_is_available_without_local_server(self):
+        response = self.client.get('/healer/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Run recovery demo')
+        self.assertNotContains(response, 'localhost')
+
+    def test_web_demo_detects_two_faults_and_verifies_retry(self):
+        response = self.client.post('/healer/demo/')
+        data = response.json()
+        self.assertEqual(data['status'], 'resolved')
+        self.assertEqual(data['iterations'], 3)
+        self.assertEqual(data['verification']['amount'], '1250.00')
+        self.assertFalse(data['verification']['production_data_changed'])
+        self.assertEqual(Transaction.objects.count(), 0)
+
+    def test_demo_requires_post_and_csrf(self):
+        from django.test import Client
+        self.assertEqual(self.client.get('/healer/demo/').status_code, 405)
+        self.assertEqual(Client(enforce_csrf_checks=True).post('/healer/demo/').status_code, 403)

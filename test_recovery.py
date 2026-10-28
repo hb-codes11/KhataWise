@@ -37,7 +37,7 @@ class RecoveryTests(unittest.TestCase):
         self.assertEqual(result['final_status'], 'resolved', result)
         self.assertNotIn(recovery.FAULT, (self.root / recovery.TARGET).read_text())
         self.assertIn('commit', result)
-        self.assertIn('Ran 9 tests', result['verification'])
+        self.assertIn('OK', result['verification'])
 
     def test_failed_verification_restores_source_and_does_not_commit(self):
         with patch.object(recovery, 'run_check', return_value=(False, 'regression failed')):

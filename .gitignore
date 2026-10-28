@@ -25,3 +25,6 @@ media/
 .vscode/
 .idea/
 *.swp
+
+# Generated cloud verification evidence
+cloud-recovery-report.json

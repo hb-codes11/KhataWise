@@ -1,6 +1,6 @@
 from django.contrib.auth import views as auth_views
 from django.urls import path
-from . import views
+from . import views, web_healing
 
 urlpatterns = [
     path("", views.dashboard, name="dashboard"),
@@ -14,5 +14,7 @@ urlpatterns = [
     path("reports.csv", views.report_csv, name="report_csv"),
     path("settings/", views.business_settings, name="business_settings"),
     path("test-error/", views.trigger_error, name="trigger_error"),
-    path("healer/", views.healer_info, name="healer_info"),
+    path("healer/", web_healing.healer_page, name="healer_info"),
+    path("healer/status/", web_healing.cloud_status, name="cloud_healing_status"),
+    path("healer/demo/", web_healing.recovery_demo, name="cloud_healing_demo"),
 ]
