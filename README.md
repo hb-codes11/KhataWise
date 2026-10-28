@@ -34,11 +34,22 @@ The last suite reintroduces the deliberate crash inside a temporary Git reposito
 then exercises real repair, expense POST verification, commit, rollback, and dirty
 source protection without modifying the running app.
 
-Deployment boundary: the persistent healer runs on this machine. Vercel serves Django
-requests and deploys GitHub changes; its per-instance `/tmp/logs` are not local logs.
-Remote incidents require a log drain/forwarder to the persistent healer. Vercel also
-currently uses temporary SQLite, so production data persistence requires a hosted
-database. These hosting settings and the existing URL were not changed here.
+Vercel connection: the persistent healer reads the latest production deployment's
+runtime-log stream using the installed Vercel login (`vercel login`). The dashboard
+shows connection state, project, received events, and error count. It reconnects after
+idle disconnects and follows production deployment changes. Production exceptions
+also write to stderr so Vercel can capture their tracebacks. No public tunnel or
+inbound access to the local command-execution API is needed. Login expiry appears as
+`login_required`; sign in again and the connection retries automatically.
+
+Set `VERCEL_MONITOR_ENABLED=0` to disable remote monitoring, `VERCEL_TEAM_ID` to
+select a team, or `VERCEL_AUTH_DIR` to select another CLI login folder. Credentials
+stay local and are never returned by the status endpoint. `VERCEL_TOKEN` can be
+supplied by the environment for unattended operation. Run `python3 -m unittest
+test_vercel_bridge -v` to verify routing, deduplication, and login-failure handling.
+
+Vercel currently uses temporary SQLite, so production data persistence requires a
+hosted database. The existing deployment URL and hosting settings are unchanged.
 
 ---
 

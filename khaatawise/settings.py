@@ -104,6 +104,11 @@ LOGGING = {
             "class": "logging.StreamHandler",
             "formatter": "simple",
         },
+        "runtime_errors": {
+            "level": "ERROR",
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
         "input_log": {
             "level": "INFO",
             "class": "logging.handlers.RotatingFileHandler",
@@ -144,7 +149,7 @@ LOGGING = {
             "propagate": True,
         },
         "django.request": {
-            "handlers": ["error_log"],
+            "handlers": ["error_log", "runtime_errors"],
             "level": "ERROR",
             "propagate": False,
         },
@@ -154,7 +159,7 @@ LOGGING = {
             "propagate": False,
         },
         "django.security": {
-            "handlers": ["error_log"],
+            "handlers": ["error_log", "runtime_errors"],
             "level": "ERROR",
             "propagate": False,
         },

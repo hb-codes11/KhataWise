@@ -89,3 +89,9 @@ COMMAND_TIMEOUT_SECONDS = int(os.getenv("COMMAND_TIMEOUT_SECONDS", "60"))
 
 # Recovery runs locally; Vercel keeps serving the existing application URL.
 AUTO_PUSH_FIXES = os.getenv("AUTO_PUSH_FIXES", "0") == "1"
+
+# Existing production deployment; outbound log access uses the local Vercel login.
+PRODUCTION_URL = "https://khatawise-n849.vercel.app/"
+VERCEL_PROJECT = os.getenv("VERCEL_PROJECT", "khatawise-n849")
+VERCEL_MONITOR_ENABLED = os.getenv("VERCEL_MONITOR_ENABLED", "1") == "1"
+VERCEL_AUTH_DIR = os.getenv("VERCEL_AUTH_DIR", str(Path.home() / "Library/Application Support/com.vercel.cli"))

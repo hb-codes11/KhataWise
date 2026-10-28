@@ -17,6 +17,7 @@ import settings
 from log_watcher import LogWatcher
 from ai_client import AIClient
 from healing_loop import SelfHealingSession
+from vercel_bridge import VercelBridge
 
 # Configure logging
 logging.basicConfig(
@@ -37,6 +38,7 @@ app = FastAPI(
 
 # Global runtime state
 watcher = LogWatcher()
+vercel_bridge = VercelBridge()
 ai_client = AIClient()
 healing_history: List[Dict[str, Any]] = []
 is_monitoring = True
@@ -139,6 +141,7 @@ def startup_event():
     """Starts the continuous 5-second log watcher on server startup."""
     global watcher_thread, is_monitoring
     is_monitoring = True
+    vercel_bridge.start()
     watcher_thread = threading.Thread(target=continuous_log_monitor, daemon=True)
     watcher_thread.start()
     logger.info("Background 5-second log watcher thread initialized and running.")
@@ -148,6 +151,7 @@ def startup_event():
 def shutdown_event():
     global is_monitoring
     is_monitoring = False
+    vercel_bridge.stop.set()
     logger.info("Shutting down server and continuous log monitor.")
 
 
@@ -385,6 +389,11 @@ DASHBOARD_HTML = """
     </div>
   </div>
 
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-title">Vercel production connection</div>
+    <a href="https://khatawise-n849.vercel.app/" target="_blank" style="color:var(--primary)">Open live KhaataWise ↗</a>
+    <div id="vercel-status" style="margin-top:8px">Checking connection...</div>
+  </div>
   <div class="actions">
     <button class="btn-danger" onclick="triggerCrash()">
       💥 Trigger Error in KhaataWise (Simulate 500)
@@ -458,6 +467,10 @@ DASHBOARD_HTML = """
         const logs = await logsRes.json();
         const history = await histRes.json();
 
+        const vc = status.vercel || {};
+        document.getElementById('vercel-status').textContent =
+          (vc.status || 'unknown').replaceAll('_', ' ').toUpperCase() + ' — ' +
+          (vc.detail || '') + ' Events: ' + (vc.events_received || 0) + ', errors: ' + (vc.errors_received || 0);
         // Update cards
         document.getElementById('ai-info').textContent = (status.ai_settings.provider || 'AI').toUpperCase() + ' (' + (status.ai_settings.groq_model || status.ai_settings.gemini_model || 'fast') + ')';
         const healingEl = document.getElementById('healing-status');
@@ -581,6 +594,7 @@ def get_status():
             "gemini_model": settings.GEMINI_MODEL,
             "openai_model": settings.OPENAI_MODEL
         },
+        "vercel": vercel_bridge.snapshot(),
         "logs": watcher.get_status(),
         "recent_healing_sessions": [
             {
