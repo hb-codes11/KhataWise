@@ -24,3 +24,5 @@ Traceback (most recent call last):
     raise RuntimeError("CRITICAL FAULT: Expense module has a fatal bug - server crash triggered intentionally for logging demo")
 RuntimeError: CRITICAL FAULT: Expense module has a fatal bug - server crash triggered intentionally for logging demo
 FATAL [DatabasePool] Connection refused at 1793178402.5689862
+FATAL [DatabasePool] Connection refused at 1793178769.202326
+FATAL [DatabasePool] Connection refused at 1793178849.396628

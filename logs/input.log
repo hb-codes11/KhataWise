@@ -118,3 +118,14 @@
 2026-10-28 14:36:49,121 | POST | /transactions/add/ | owner | 127.0.0.1 | 302 | 3ms
 2026-10-28 14:36:49,125 | GET | / | owner | 127.0.0.1 | 200 | 3ms
 2026-10-28 14:36:49,388 | GET | /transactions/1/edit/ | owner | 127.0.0.1 | 404 | 3ms
+2026-10-28 14:42:47,114 | GET | / | anonymous | 127.0.0.1 | 302 | 0ms
+2026-10-28 14:42:47,120 | GET | /accounts/login/?next=%2F | anonymous | 127.0.0.1 | 200 | 5ms
+2026-10-28 14:42:47,269 | POST | /accounts/signup/ | new-owner | 127.0.0.1 | 302 | 147ms
+2026-10-28 14:42:47,275 | GET | / | new-owner | 127.0.0.1 | 200 | 5ms
+2026-10-28 14:42:47,421 | GET | /reports.csv?fy=2026 | owner | 127.0.0.1 | 200 | 3ms
+2026-10-28 14:42:47,558 | GET | /?fy=2026 | owner | 127.0.0.1 | 200 | 3ms
+2026-10-28 14:42:47,697 | GET | /reports/?fy=2026 | owner | 127.0.0.1 | 200 | 5ms
+2026-10-28 14:42:47,837 | GET | /transactions/add/ | owner | 127.0.0.1 | 200 | 6ms
+2026-10-28 14:42:47,972 | POST | /transactions/add/ | owner | 127.0.0.1 | 302 | 3ms
+2026-10-28 14:42:47,975 | GET | / | owner | 127.0.0.1 | 200 | 3ms
+2026-10-28 14:42:48,234 | GET | /transactions/1/edit/ | owner | 127.0.0.1 | 404 | 0ms

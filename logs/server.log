@@ -81,3 +81,177 @@ INFO 2026-10-28 13:52:43,146 basehttp 31303 6141030400 "GET /static/khaatawise/c
 INFO 2026-10-28 13:52:58,084 basehttp 31303 6141030400 "GET /reports/ HTTP/1.1" 200 5292
 INFO 2026-10-28 13:53:10,388 basehttp 31303 6141030400 "GET /settings/ HTTP/1.1" 200 3683
 INFO 2026-10-28 13:53:12,323 basehttp 31303 6141030400 "GET / HTTP/1.1" 200 6600
+2026-10-28 14:41:16,803 [INFO] [server] Starting server on 0.0.0.0:8080...
+2026-10-28 14:41:16,836 [INFO] [server] Starting continuous log monitor (interval = 5.0s)
+2026-10-28 14:41:16,836 [INFO] [server] Background 5-second log watcher thread initialized and running.
+2026-10-28 14:41:16,836 [INFO] [server] Watched files: {'error': '/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/error.log', 'input': '/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/input.log', 'output': '/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/output.log', 'server': '/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log'}
+2026-10-28 14:41:16,836 [INFO] [log_watcher] Detected 4 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:41:16,836 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:41:21,842 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:41:21,842 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:41:26,847 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:41:26,847 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:41:31,853 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:41:31,853 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:41:36,856 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:41:36,856 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:41:41,861 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:41:41,861 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:41:46,864 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:41:46,864 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:41:51,870 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:41:51,870 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:41:56,876 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:41:56,876 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:01,882 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:01,883 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:06,888 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:06,889 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:11,892 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:11,892 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:16,894 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:16,894 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:21,899 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:21,899 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:26,905 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:26,905 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:31,911 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:31,911 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:36,912 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:36,912 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:41,915 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:41,915 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:46,920 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:46,921 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:42:51,925 [INFO] [log_watcher] Detected 1 new lines in error log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/error.log)
+2026-10-28 14:42:51,925 [INFO] [log_watcher] Detected 11 new lines in input log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/input.log)
+2026-10-28 14:42:51,925 [INFO] [log_watcher] Detected 11 new lines in output log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/output.log)
+2026-10-28 14:42:51,925 [INFO] [log_watcher] Detected 5 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:51,925 [INFO] [server] Log monitor detected updates across files: ['error', 'input', 'output', 'server']
+2026-10-28 14:42:51,925 [INFO] [server] Triggering autonomous AI self-healing: 1 new error(s) in error.log
+2026-10-28 14:42:51,926 [INFO] [healing_loop] [heal-683c5b91] Starting AI Self-Healing session: 1 new error(s) in error.log
+2026-10-28 14:42:51,927 [INFO] [healing_loop] [heal-683c5b91] AI Iteration #1 querying AI...
+2026-10-28 14:42:51,927 [INFO] [ai_client] Querying AI provider 'mock'...
+2026-10-28 14:42:51,927 [INFO] [ai_client] [MockAI] Step 1 prompt received (2860 chars)
+2026-10-28 14:42:51,928 [INFO] [healing_loop] [heal-683c5b91] Iteration #1 AI returned: cmd='tail -n 10 error.log' | mry='MockAI: Detected new log alerts. Running diagnostic on error.log....'
+2026-10-28 14:42:51,928 [INFO] [healing_loop] [heal-683c5b91] Executing terminal command: tail -n 10 error.log
+2026-10-28 14:42:51,945 [INFO] [healing_loop] [heal-683c5b91] Command finished (Exit 1, 0.02s). Output: [STDERR]
+tail: error.log: No such file or directory...
+2026-10-28 14:42:51,945 [INFO] [healing_loop] [heal-683c5b91] AI Iteration #2 querying AI...
+2026-10-28 14:42:51,945 [INFO] [ai_client] Querying AI provider 'mock'...
+2026-10-28 14:42:51,945 [INFO] [ai_client] [MockAI] Step 2 prompt received (1731 chars)
+2026-10-28 14:42:51,945 [INFO] [healing_loop] [heal-683c5b91] Iteration #2 AI returned: cmd='echo 'Self-healing diagnostic executed' >> output.log' | mry='MockAI: Analyzed error. Appended diagnostic confirmation to output.log....'
+2026-10-28 14:42:51,945 [INFO] [healing_loop] [heal-683c5b91] Executing terminal command: echo 'Self-healing diagnostic executed' >> output.log
+2026-10-28 14:42:51,957 [INFO] [healing_loop] [heal-683c5b91] Command finished (Exit 0, 0.01s). Output: (no output)...
+2026-10-28 14:42:51,958 [INFO] [healing_loop] [heal-683c5b91] AI Iteration #3 querying AI...
+2026-10-28 14:42:51,958 [INFO] [ai_client] Querying AI provider 'mock'...
+2026-10-28 14:42:51,958 [INFO] [ai_client] [MockAI] Step 3 prompt received (1730 chars)
+2026-10-28 14:42:51,958 [INFO] [healing_loop] [heal-683c5b91] Iteration #3 AI returned: cmd='quit' | mry='MockAI: Self-healing complete. All checks passed and confirmed....'
+2026-10-28 14:42:51,958 [INFO] [healing_loop] [heal-683c5b91] AI issued 'quit'. Closing AI self-healing session without shell execution.
+[2026-10-28T14:42:51.958770] HEALING SESSION heal-683c5b91 COMPLETED: resolved in 0.03s
+2026-10-28 14:42:56,928 [INFO] [log_watcher] Detected 1 new lines in output log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/output.log)
+2026-10-28 14:42:56,928 [INFO] [log_watcher] Detected 24 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:42:56,928 [INFO] [server] Log monitor detected updates across files: ['output', 'server']
+2026-10-28 14:43:01,930 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:01,930 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:06,936 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:06,936 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:11,937 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:11,937 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:16,942 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:16,943 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:21,944 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:21,944 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:26,950 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:26,950 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:31,951 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:31,952 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:36,957 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:36,958 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:41,963 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:41,963 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:46,968 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:46,969 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:51,971 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:51,972 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:43:56,976 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:43:56,976 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:01,978 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:01,978 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:06,980 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:06,980 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:11,986 [INFO] [log_watcher] Detected 1 new lines in error log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/error.log)
+2026-10-28 14:44:11,986 [INFO] [log_watcher] Detected 3 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:11,986 [INFO] [server] Log monitor detected updates across files: ['error', 'server']
+2026-10-28 14:44:11,986 [INFO] [server] Triggering autonomous AI self-healing: 1 new error(s) in error.log
+2026-10-28 14:44:11,987 [INFO] [healing_loop] [heal-f3a6ca74] Starting AI Self-Healing session: 1 new error(s) in error.log
+2026-10-28 14:44:11,987 [INFO] [healing_loop] [heal-f3a6ca74] AI Iteration #1 querying AI...
+2026-10-28 14:44:11,987 [INFO] [ai_client] Querying AI provider 'mock'...
+2026-10-28 14:44:11,988 [INFO] [ai_client] [MockAI] Step 1 prompt received (2175 chars)
+2026-10-28 14:44:11,988 [INFO] [healing_loop] [heal-f3a6ca74] Iteration #1 AI returned: cmd='tail -n 10 error.log' | mry='MockAI: Detected new log alerts. Running diagnostic on error.log....'
+2026-10-28 14:44:11,988 [INFO] [healing_loop] [heal-f3a6ca74] Executing terminal command: tail -n 10 error.log
+2026-10-28 14:44:12,003 [INFO] [healing_loop] [heal-f3a6ca74] Command finished (Exit 1, 0.02s). Output: [STDERR]
+tail: error.log: No such file or directory...
+2026-10-28 14:44:12,004 [INFO] [healing_loop] [heal-f3a6ca74] AI Iteration #2 querying AI...
+2026-10-28 14:44:12,004 [INFO] [ai_client] Querying AI provider 'mock'...
+2026-10-28 14:44:12,004 [INFO] [ai_client] [MockAI] Step 2 prompt received (1731 chars)
+2026-10-28 14:44:12,004 [INFO] [healing_loop] [heal-f3a6ca74] Iteration #2 AI returned: cmd='echo 'Self-healing diagnostic executed' >> output.log' | mry='MockAI: Analyzed error. Appended diagnostic confirmation to output.log....'
+2026-10-28 14:44:12,004 [INFO] [healing_loop] [heal-f3a6ca74] Executing terminal command: echo 'Self-healing diagnostic executed' >> output.log
+2026-10-28 14:44:12,013 [INFO] [healing_loop] [heal-f3a6ca74] Command finished (Exit 0, 0.01s). Output: (no output)...
+2026-10-28 14:44:12,013 [INFO] [healing_loop] [heal-f3a6ca74] AI Iteration #3 querying AI...
+2026-10-28 14:44:12,013 [INFO] [ai_client] Querying AI provider 'mock'...
+2026-10-28 14:44:12,013 [INFO] [ai_client] [MockAI] Step 3 prompt received (1730 chars)
+2026-10-28 14:44:12,013 [INFO] [healing_loop] [heal-f3a6ca74] Iteration #3 AI returned: cmd='quit' | mry='MockAI: Self-healing complete. All checks passed and confirmed....'
+2026-10-28 14:44:12,013 [INFO] [healing_loop] [heal-f3a6ca74] AI issued 'quit'. Closing AI self-healing session without shell execution.
+[2026-10-28T14:44:12.013556] HEALING SESSION heal-f3a6ca74 COMPLETED: resolved in 0.03s
+2026-10-28 14:44:16,993 [INFO] [log_watcher] Detected 1 new lines in output log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/output.log)
+2026-10-28 14:44:16,993 [INFO] [log_watcher] Detected 24 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:16,993 [INFO] [server] Log monitor detected updates across files: ['output', 'server']
+2026-10-28 14:44:21,996 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:21,997 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:27,002 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:27,002 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:32,008 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:32,008 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:37,014 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:37,014 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:42,018 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:42,019 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:47,024 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:47,025 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:52,027 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:52,028 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:44:57,033 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:44:57,033 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:02,039 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:02,039 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:07,042 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:07,043 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:12,049 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:12,049 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:17,054 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:17,054 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:22,060 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:22,060 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:27,066 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:27,066 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:32,071 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:32,071 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:37,074 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:37,074 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:42,076 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:42,076 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:47,078 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:47,079 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:52,080 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:52,080 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:45:57,083 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:45:57,083 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:46:02,087 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:46:02,087 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:46:07,092 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:46:07,092 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:46:12,098 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:46:12,098 [INFO] [server] Log monitor detected updates across files: ['server']
+2026-10-28 14:46:17,100 [INFO] [log_watcher] Detected 2 new lines in server log (/Users/harshbhadrawale/.gemini/antigravity/scratch/ai-self-healing-server/logs/server.log)
+2026-10-28 14:46:17,100 [INFO] [server] Log monitor detected updates across files: ['server']
