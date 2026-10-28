@@ -1,0 +1,23 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f2"><title>{% block title %}KhaataWise{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'khaatawise/css/app.css' %}">
+</head>
+<body>
+{% if user.is_authenticated %}
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="{% url 'dashboard' %}"><span class="brand-mark">K</span><span>Khaata<span class="brand-light">Wise</span><small>BUSINESS, IN BALANCE</small></span></a>
+    <div class="side-label">WORKSPACE</div>
+    <nav class="side-nav"><a class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'dashboard' %}"><span>◫</span> Overview</a><a class="{% if request.resolver_match.url_name == 'report' %}active{% endif %}" href="{% url 'report' %}"><span>▤</span> Tax reports</a><a class="{% if request.resolver_match.url_name == 'business_settings' %}active{% endif %}" href="{% url 'business_settings' %}"><span>⚙</span> Business settings</a></nav>
+    <div class="sidebar-bottom"><div class="help-card"><span class="help-icon">✳</span><strong>Keep your books in balance</strong><p>Small steps today make tax time easier.</p></div><div class="user-chip"><div class="avatar">{{ user.username|first|upper }}</div><div class="user-label"><strong>{{ user.username }}</strong><span>{{ profile.business_name|default:'Your workspace' }}</span></div><form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="icon-button" aria-label="Sign out" title="Sign out">↗</button></form></div></div>
+  </aside>
+  <main class="main-area"><header class="topbar"><div class="breadcrumb">Workspace <span>/</span> {% block crumb %}Overview{% endblock %}</div><div class="top-actions"><span class="secure-label"><i></i> Private workspace</span><a class="avatar top-avatar" href="{% url 'business_settings' %}">{{ user.username|first|upper }}</a></div></header>
+    <div class="content-wrap">{% if messages %}<div class="messages">{% for message in messages %}<div class="message">{{ message }}</div>{% endfor %}</div>{% endif %}{% block content %}{% endblock %}<footer class="app-footer">Made for the people behind small businesses <span>·</span> <a href="{% url 'business_settings' %}">Your data stays yours</a></footer></div>
+  </main>
+</div>
+{% else %}<div class="auth-shell"><a class="brand auth-brand" href="{% url 'login' %}"><span class="brand-mark">K</span><span>Khaata<span class="brand-light">Wise</span><small>BUSINESS, IN BALANCE</small></span></a>{% if messages %}<div class="messages">{% for message in messages %}<div class="message">{{ message }}</div>{% endfor %}</div>{% endif %}{% block auth_content %}{% endblock %}</div>{% endif %}
+{% block scripts %}{% endblock %}
+</body></html>

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Environment Variables & Secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Django & Databases
+*.sqlite3
+db.sqlite3-journal
+staticfiles/
+media/
+
+# IDE & OS
+.DS_Store
+.vscode/
+.idea/
+*.swp

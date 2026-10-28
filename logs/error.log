@@ -1,0 +1,26 @@
+ERROR 2026-10-28 13:43:24,193 log 31341 6127792128 Internal Server Error: /transactions/add/
+Traceback (most recent call last):
+  File "/Users/prassusharma/.pyenv/versions/3.12.14/lib/python3.12/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prassusharma/.pyenv/versions/3.12.14/lib/python3.12/site-packages/django/core/handlers/base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prassusharma/.pyenv/versions/3.12.14/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prassusharma/Desktop/hackthon/KhaataWise/khaatawise/views.py", line 111, in transaction_create
+    raise RuntimeError("CRITICAL FAULT: Expense module has a fatal bug - server crash triggered intentionally for logging demo")
+RuntimeError: CRITICAL FAULT: Expense module has a fatal bug - server crash triggered intentionally for logging demo
+ERROR 2026-10-28 13:46:55,905 log 31303 6124204032 Internal Server Error: /transactions/add/
+Traceback (most recent call last):
+  File "/Users/prassusharma/Desktop/hackthon/KhaataWise/.venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/prassusharma/Desktop/hackthon/KhaataWise/.venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/prassusharma/Desktop/hackthon/KhaataWise/.venv/lib/python3.14/site-packages/django/contrib/auth/decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/prassusharma/Desktop/hackthon/KhaataWise/khaatawise/views.py", line 111, in transaction_create
+    raise RuntimeError("CRITICAL FAULT: Expense module has a fatal bug - server crash triggered intentionally for logging demo")
+RuntimeError: CRITICAL FAULT: Expense module has a fatal bug - server crash triggered intentionally for logging demo
+FATAL [DatabasePool] Connection refused at 1793178402.5689862
