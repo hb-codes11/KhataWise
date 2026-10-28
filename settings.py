@@ -12,14 +12,18 @@ load_dotenv(BASE_DIR / ".env")
 LOGS_DIR = BASE_DIR / "logs"
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
+def log_path(name):
+    value = Path(os.getenv(name.upper() + "_LOG_PATH", str(LOGS_DIR / (name + ".log"))))
+    return str(value if value.is_absolute() else BASE_DIR / value)
+
 # ==========================================
 # Log File Addresses / Paths
 # ==========================================
 # Configure the exact addresses/paths of the 4 watched log files
-ERROR_LOG_PATH = os.getenv("ERROR_LOG_PATH", str(LOGS_DIR / "error.log"))
-INPUT_LOG_PATH = os.getenv("INPUT_LOG_PATH", str(LOGS_DIR / "input.log"))
-OUTPUT_LOG_PATH = os.getenv("OUTPUT_LOG_PATH", str(LOGS_DIR / "output.log"))
-SERVER_LOG_PATH = os.getenv("SERVER_LOG_PATH", str(LOGS_DIR / "server.log"))
+ERROR_LOG_PATH = log_path("error")
+INPUT_LOG_PATH = log_path("input")
+OUTPUT_LOG_PATH = log_path("output")
+SERVER_LOG_PATH = log_path("server")
 
 # Dictionary of all watched logs for convenient iteration
 WATCHED_LOGS = {
@@ -77,8 +81,11 @@ MAX_AI_ITERATIONS = int(os.getenv("MAX_AI_ITERATIONS", "15"))
 # ==========================================
 # Server Configuration
 # ==========================================
-SERVER_HOST = os.getenv("SERVER_HOST", "0.0.0.0")
+SERVER_HOST = os.getenv("SERVER_HOST", "127.0.0.1")
 SERVER_PORT = int(os.getenv("SERVER_PORT", "8080"))
 
 # Command execution timeout (seconds)
 COMMAND_TIMEOUT_SECONDS = int(os.getenv("COMMAND_TIMEOUT_SECONDS", "60"))
+
+# Recovery runs locally; Vercel keeps serving the existing application URL.
+AUTO_PUSH_FIXES = os.getenv("AUTO_PUSH_FIXES", "0") == "1"

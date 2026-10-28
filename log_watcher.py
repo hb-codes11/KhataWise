@@ -14,6 +14,7 @@ class LogWatcher:
     def __init__(self, watched_files: Optional[Dict[str, str]] = None):
         self.watched_files = watched_files or settings.WATCHED_LOGS
         self.offsets: Dict[str, int] = {}
+        self.identities = {}
         self._initialize_offsets()
 
     def _initialize_offsets(self):
@@ -27,6 +28,8 @@ class LogWatcher:
                 self.offsets[name] = 0
             else:
                 self.offsets[name] = path.stat().st_size
+            stat = path.stat()
+            self.identities[name] = (stat.st_dev, stat.st_ino)
 
     def check_updates(self) -> Dict[str, List[str]]:
         """
@@ -38,23 +41,29 @@ class LogWatcher:
         for name, path_str in self.watched_files.items():
             path = Path(path_str)
             if not path.exists():
+                path.parent.mkdir(parents=True, exist_ok=True)
                 path.touch()
                 self.offsets[name] = 0
+                self.identities.pop(name, None)
                 continue
 
-            current_size = path.stat().st_size
+            stat = path.stat()
+            identity = (stat.st_dev, stat.st_ino)
+            current_size = stat.st_size
             last_offset = self.offsets.get(name, 0)
 
             # Handle file truncation/rotation
-            if current_size < last_offset:
+            if current_size < last_offset or self.identities.get(name) != identity:
                 logger.info(f"Log file '{name}' was truncated or rotated. Resetting offset.")
                 last_offset = 0
 
+            self.identities[name] = identity
+            self.offsets[name] = last_offset
             if current_size > last_offset:
                 try:
-                    with open(path, "r", encoding="utf-8", errors="replace") as f:
+                    with open(path, "rb") as f:
                         f.seek(last_offset)
-                        new_content = f.read()
+                        new_content = f.read().decode("utf-8", errors="replace")
                         self.offsets[name] = f.tell()
 
                     new_lines = [line.strip() for line in new_content.splitlines() if line.strip()]

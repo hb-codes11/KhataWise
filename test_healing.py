@@ -73,7 +73,7 @@ def test_self_healing_iteration_loop():
     print(f"Latest memory: {result['latest_memory']}")
     
     # Verify iteration flow
-    assert result["final_status"] == "resolved"
+    assert result["final_status"] == "diagnostic_only"
     assert result["total_iterations"] >= 2
     # Verify the last iteration was 'quit'
     last_iter = result["iterations"][-1]

@@ -64,13 +64,13 @@ class MockAIService:
         # Step 1: inspect the error log
         if self.step == 1:
             return json.dumps({
-                "cmd": "tail -n 10 error.log",
+                "cmd": "tail -n 10 logs/error.log",
                 "mry": "MockAI: Detected new log alerts. Running diagnostic on error.log."
             })
         # Step 2: check processes or touch confirmation
         elif self.step == 2:
             return json.dumps({
-                "cmd": "echo 'Self-healing diagnostic executed' >> output.log",
+                "cmd": "echo 'Diagnostic only; no repair applied'",
                 "mry": "MockAI: Analyzed error. Appended diagnostic confirmation to output.log."
             })
         # Step 3: Finish and quit
@@ -78,7 +78,7 @@ class MockAIService:
             self.step = 0  # reset for next session
             return json.dumps({
                 "cmd": "quit",
-                "mry": "MockAI: Self-healing complete. All checks passed and confirmed."
+                "mry": "MockAI: Diagnostic simulation finished. No repair was performed."
             })
 
 

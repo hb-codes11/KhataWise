@@ -105,10 +105,6 @@ def transaction_create(request):
     if request.method == "POST" and form.is_valid():
         transaction = form.save(commit=False)
         transaction.user = request.user
-        # BUG: Faulty expense handling - CRASHES the server when creating expenses
-        if transaction.transaction_type == Transaction.EXPENSE:
-            logger.critical("FAULTY FEATURE CRASH: Expense creation triggers server crash for user %s", request.user.username)
-            raise RuntimeError("CRITICAL FAULT: Expense module has a fatal bug - server crash triggered intentionally for logging demo")
         transaction.save()
         messages.success(request, "Transaction saved.")
         return redirect("dashboard")

@@ -1,3 +1,47 @@
+## Verified expense recovery (October 2026)
+
+The deliberate exception in expense creation is fixed. Both income and expense POSTs
+are covered by Django regression tests. The existing production URL remains
+https://khatawise-n849.vercel.app/ and `vercel.json` is unchanged.
+
+Run `AUTO_PUSH_FIXES=1 python3 run_all.py` to supervise the Django app on port 8000
+and the healer on port 8080. The launcher restarts an exited service independently
+with backoff and leaves its sibling running. Stop the launcher to stop both.
+
+The watcher consumes local logs every five seconds, including errors arriving during
+an active repair. For the known deliberate expense exception, `recovery.py` recognizes
+the exact fault block, removes it, runs the complete application test suite, restores
+the source on failed validation, and commits only the verified expense source change.
+With `AUTO_PUSH_FIXES=1`, it pushes that commit to the existing origin/current branch.
+Git credentials and branch push access must already be configured. Operator edits in
+the expense source defer automatic patching. Push failures retain the local commit
+and are reported in session history.
+
+Unknown incidents use the configured AI diagnostic loop. A model saying `quit` does
+not prove recovery: application regression checks run, failed checks return to the
+loop, and unproven outcomes are marked `needs_attention`. Mock runs are explicitly
+`diagnostic_only`. The deterministic expense repair works without an AI key.
+The healer executes AI shell commands with the launcher's user permissions, so its
+API binds to loopback by default; keep it on a trusted local machine.
+
+Validation:
+```
+python3 manage.py test --noinput
+AI_PROVIDER=mock python3 test_healing.py
+python3 -m unittest test_recovery -v
+```
+The last suite reintroduces the deliberate crash inside a temporary Git repository,
+then exercises real repair, expense POST verification, commit, rollback, and dirty
+source protection without modifying the running app.
+
+Deployment boundary: the persistent healer runs on this machine. Vercel serves Django
+requests and deploys GitHub changes; its per-instance `/tmp/logs` are not local logs.
+Remote incidents require a log drain/forwarder to the persistent healer. Vercel also
+currently uses temporary SQLite, so production data persistence requires a hosted
+database. These hosting settings and the existing URL were not changed here.
+
+---
+
 # Autonomous AI Self-Healing Server (MVP)
 > **Core MVP Application**: An autonomous AI daemon and control dashboard that continuously monitors server logs, formulates diagnostic shell commands, and repairs running systems.
 > **Target Test Application**: **KhaataWise** (Django financial bookkeeping app), used as the realistic testbench to produce HTTP traffic, database transactions, and simulated runtime exceptions.

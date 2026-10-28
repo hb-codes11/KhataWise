@@ -39,6 +39,13 @@ class SelfHealingSession:
 
     def run(self, ai_client: AIClient) -> Dict[str, Any]:
         logger.info(f"[{self.session_id}] Starting AI Self-Healing session: {self.trigger_reason}")
+        from recovery import repair_expense, run_check
+        recovery = repair_expense(self.initial_context)
+        if recovery is not None:
+            recovery.update(session_id=self.session_id, trigger_reason=self.trigger_reason,
+                            total_iterations=1, duration_seconds=round((datetime.now()-self.start_time).total_seconds(), 2),
+                            iterations=[])
+            return recovery
         system_prompt = load_system_prompt()
 
         # Build initial prompt
@@ -80,7 +87,23 @@ class SelfHealingSession:
                 logger.info(f"[{self.session_id}] AI issued 'quit'. Closing AI self-healing session without shell execution.")
                 iteration_record["action_taken"] = "quit_received - session completed"
                 self.iterations.append(iteration_record)
-                self.final_status = "resolved"
+                if ai_client.provider == "mock":
+                    self.final_status = "diagnostic_only"
+                else:
+                    try:
+                        verified, output = run_check()
+                    except Exception as exc:
+                        verified, output = False, str(exc)
+                    iteration_record["verification"] = output
+                    # A green baseline cannot prove an unknown incident was repaired.
+                    self.final_status = "needs_attention" if verified else "verification_failed"
+                    if not verified and iteration_count < settings.MAX_AI_ITERATIONS:
+                        self.iterations.append(iteration_record)
+                        current_prompt = (f"{system_prompt}\nOriginal incident: {self.initial_context}\n"
+                                          f"Memory: {mry}\nVerification failed:\n{output}\n"
+                                          "Continue diagnosis and repair; do not claim success.")
+                        self.final_status = "pending"
+                        continue
                 break
 
             # Execute command in the terminal
@@ -101,6 +124,7 @@ class SelfHealingSession:
             # Resend mry + system.txt as requested
             # Along with the execution results so the AI knows what the command returned
             current_prompt = (
+                f"ORIGINAL INCIDENT:\n{self.initial_context}\n\n"
                 f"MEMORY CONTEXT (mry):\n{mry}\n\n"
                 f"SYSTEM PROMPT (system.txt):\n{system_prompt}\n\n"
                 f"LAST COMMAND EXECUTED:\n$ {cmd}\n\n"

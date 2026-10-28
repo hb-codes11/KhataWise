@@ -35,6 +35,17 @@ class KhaataWiseTests(TestCase):
         self.assertRedirects(response, reverse("dashboard"))
         self.assertTrue(Transaction.objects.filter(user=self.user, description="New sale").exists())
 
+    def test_expense_create_and_dashboard_remain_available(self):
+        response = self.client.post(reverse("transaction_add"), {
+            "date": "2026-05-02", "description": "Office rent", "category": "Rent",
+            "transaction_type": "expense", "amount": "1200.00", "gst_amount": "0.00",
+        })
+        self.assertRedirects(response, reverse("dashboard"))
+        transaction = Transaction.objects.get(user=self.user, description="Office rent")
+        self.assertEqual(transaction.transaction_type, Transaction.EXPENSE)
+        self.assertEqual(transaction.amount, Decimal("1200.00"))
+        self.assertEqual(self.client.get(reverse("dashboard")).status_code, 200)
+
     def test_new_transaction_form_defaults_to_income(self):
         response = self.client.get(reverse("transaction_add"))
         self.assertEqual(response.context["form"]["transaction_type"].value(), Transaction.INCOME)

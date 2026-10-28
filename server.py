@@ -41,6 +41,7 @@ ai_client = AIClient()
 healing_history: List[Dict[str, Any]] = []
 is_monitoring = True
 is_healing_active = False
+healing_lock = threading.Lock()
 last_check_timestamp = None
 watcher_thread: Optional[threading.Thread] = None
 
@@ -48,6 +49,7 @@ watcher_thread: Optional[threading.Thread] = None
 def run_healing_session(trigger_reason: str, initial_context: str) -> Dict[str, Any]:
     """Execute a self-healing session and record it in history and server.log."""
     global is_healing_active
+    healing_lock.acquire()
     is_healing_active = True
     session_id = f"heal-{uuid.uuid4().hex[:8]}"
 
@@ -70,6 +72,7 @@ def run_healing_session(trigger_reason: str, initial_context: str) -> Dict[str, 
         return result
     finally:
         is_healing_active = False
+        healing_lock.release()
 
 
 def continuous_log_monitor():
@@ -81,6 +84,8 @@ def continuous_log_monitor():
     logger.info(f"Starting continuous log monitor (interval = {settings.CHECK_INTERVAL_SECONDS}s)")
     logger.info(f"Watched files: {settings.WATCHED_LOGS}")
 
+    pending_reasons = []
+    pending_context = []
     while is_monitoring:
         try:
             last_check_timestamp = datetime.now().isoformat()
@@ -110,19 +115,18 @@ def continuous_log_monitor():
                 if "output" in updates:
                     context_parts.append("[RECENT output.log]:\n" + "\n".join(updates["output"]))
 
-                if should_heal and not is_healing_active:
-                    reason = " | ".join(trigger_reason_parts)
-                    context_text = "\n\n".join(context_parts)
-                    logger.info(f"Triggering autonomous AI self-healing: {reason}")
-                    # Run healing in a separate daemon thread so log checking remains responsive
-                    healing_thread = threading.Thread(
-                        target=run_healing_session,
-                        args=(reason, context_text),
-                        daemon=True
-                    )
-                    healing_thread.start()
-                elif should_heal and is_healing_active:
-                    logger.info("AI self-healing already in progress for previous incident; queuing updates.")
+                if should_heal:
+                    pending_reasons.extend(trigger_reason_parts)
+                    pending_context.extend(context_parts)
+
+            if pending_reasons and not is_healing_active:
+                reason = " | ".join(pending_reasons)
+                context_text = "\n\n".join(pending_context)
+                pending_reasons.clear()
+                pending_context.clear()
+                # Synchronous worker keeps offsets untouched during repair, so new
+                # incidents are consumed on the following poll rather than dropped.
+                run_healing_session(reason, context_text)
 
         except Exception as e:
             logger.error(f"Error during continuous log check: {e}", exc_info=True)
